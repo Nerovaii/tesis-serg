@@ -88,17 +88,22 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/<page_name>', methods=['GET'])
 @app.route('/<page_name>.html', methods=['GET'])
 def render_static_page(page_name):
     """
     Ruta genérica para templates:
+    /login                  -> templates/login.html
     /login.html             -> templates/login.html
-    /registro.html          -> templates/registro.html
-    /admin.html             -> templates/admin.html
+    /registro               -> templates/registro.html
     etc.
     """
+    # Si el nombre de la página ya termina en .html (por la segunda ruta), lo dejamos así.
+    # Si no, le agregamos .html para buscar el template.
+    template_name = page_name if page_name.endswith('.html') else f'{page_name}.html'
+    
     try:
-        return render_template(f'{page_name}.html')
+        return render_template(template_name)
     except Exception:
         # Si no existe la plantilla, 404
         abort(404)
