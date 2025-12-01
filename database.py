@@ -149,25 +149,29 @@ def create_user(email: str, password_hash: str, role: str = 'student') -> bool:
         conn.close()
 
 
-def upsert_user(email: str, password_hash: str):
-    """Crea o actualiza un usuario (usado en reset password)."""
+def upsert_user(email: str, password_hash: str, role: str = 'student') -> bool:
+    """
+    Crea o actualiza un usuario (usado en reset/change password).
+    Si el usuario no existe, lo crea con el rol indicado (por defecto 'student').
+    Si existe, solo actualiza el password_hash.
+    """
     conn = get_connection()
     cursor = conn.cursor()
     
     try:
         cursor.execute(
             """
-            INSERT INTO users (email, password_hash) 
-            VALUES (?, ?)
-            ON CONFLICT(email) DO UPDATE SET password_hash = excluded.password_hash
+            INSERT INTO users (email, password_hash, role)
+            VALUES (?, ?, ?)
+            ON CONFLICT(email) DO UPDATE SET
+                password_hash = excluded.password_hash
             """,
-            (email, password_hash)
+            (email, password_hash, role)
         )
         conn.commit()
+        return True
     finally:
         conn.close()
-    
-    return [{'id': row['id'], 'email': row['email'], 'created_at': row['created_at']} for row in rows]
 
 
 # --- Funciones para tokens ---
