@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, abort
+from jinja2 import TemplateNotFound
 from flask_cors import CORS
 import bcrypt
 import os
@@ -90,6 +91,17 @@ def home():
     Ruta principal: sirve index.html desde templates/.
     """
     return render_template('index.html')
+
+
+@app.route('/<page_name>')
+def render_static(page_name):
+    """
+    Ruta dinámica para servir páginas estáticas desde templates/.
+    """
+    try:
+        return render_template(f'{page_name}.html')
+    except TemplateNotFound:
+        abort(404)
 
 
 # --- Rutas API (backend) ---

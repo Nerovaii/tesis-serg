@@ -2,3 +2,4 @@ Flask
 flask-cors
 bcrypt
 python-dotenv
+Jinja2
