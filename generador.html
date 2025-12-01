@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Álgebra | Generador de cuestionarios</title>
+  <meta name="description" content="Genera cuestionarios interactivos de Álgebra básica, resuélvelos y guarda tu resultado en el historial.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="generador">
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">EduQuiz</div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <details class="nav-group">
+          <summary>Accesos</summary>
+          <div class="nav-group__menu">
+            <a href="login.html">Ingresar</a>
+            <a href="registro.html">Crear cuenta</a>
+            <a href="admin.html" class="nav-admin-only" hidden>Administrador</a>
+          </div>
+        </details>
+        <span class="nav-student-slot" data-student-nav-slot></span>
+        <a href="historial.html" class="nav-student-only" hidden>Historial</a>
+        <a href="admin.html" class="nav-admin-only" hidden>Panel admin</a>
+      </nav>
+      <a class="btn btn-small" href="registro.html">Crear cuenta</a>
+      <button type="button" class="btn btn-small nav-auth-only" data-auth-logout hidden>Salir</button>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-block generator" aria-labelledby="generator-title">
+      <div class="container">
+        <div class="section-head">
+          <h1 id="generator-title">Genera y resuelve tu cuestionario de Álgebra</h1>
+          <p>Selecciona los parámetros y obtendrás preguntas autocorregidas. Al finalizar, tus resultados quedarán guardados en el historial y podrás revisar la retroalimentación.</p>
+        </div>
+        <div class="panel-card" id="quiz-config-panel">
+          <form class="form-grid" id="quiz-config" aria-label="Configuración de cuestionario">
+            <label>Tema principal
+              <select name="topic" required>
+                <option value="todos">Todos los temas</option>
+                <option value="algebra">Álgebra</option>
+                <option value="geometria">Geometría</option>
+                <option value="probabilidad">Probabilidad y estadística</option>
+                <option value="ecuaciones">Ecuaciones lineales</option>
+                <option value="fracciones">Fracciones y proporciones</option>
+                <option value="sistemas">Sistemas 2x2</option>
+              </select>
+            </label>
+            <label>Dificultad
+              <select name="difficulty" required>
+                <option value="basico">Básico</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+              </select>
+            </label>
+            <label>Número de preguntas
+              <select name="questions" required>
+                <option value="3">3 preguntas</option>
+                <option value="5">5 preguntas</option>
+                <option value="7">7 preguntas</option>
+                <option value="10" selected>10 preguntas</option>
+              </select>
+            </label>
+            <button type="submit" class="btn">Generar cuestionario</button>
+          </form>
+        </div>
+
+        <div class="panel-card" id="quiz-player" hidden>
+          <div class="quiz-header">
+            <div>
+              <span class="tag" id="quiz-topic-tag">Álgebra</span>
+              <h2 id="quiz-question-title">Pregunta</h2>
+            </div>
+            <div class="quiz-progress">
+              <span id="quiz-counter">0/0</span>
+              <span id="quiz-timer">00:00</span>
+            </div>
+          </div>
+          <div id="quiz-question-text" class="quiz-text"></div>
+          <div id="quiz-options" class="options"></div>
+          <div id="quiz-feedback" class="quiz-feedback" hidden></div>
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-outline" id="quiz-next" disabled>Siguiente</button>
+            <button type="button" class="btn" id="quiz-finish" hidden>Finalizar quiz</button>
+          </div>
+        </div>
+
+        <div class="panel-card" id="quiz-summary" hidden>
+          <h2>Resumen del intento</h2>
+          <p id="quiz-summary-text"></p>
+          <div class="summary">
+            <div>
+              <span class="summary-label">Aciertos</span>
+              <strong id="quiz-summary-score">0/0</strong>
+            </div>
+            <div>
+              <span class="summary-label">Tiempo total</span>
+              <strong id="quiz-summary-time">00:00</strong>
+            </div>
+          </div>
+          <div id="quiz-summary-details" class="summary-list"></div>
+          <div class="quiz-actions">
+            <a class="btn" href="historial.html">Ver historial</a>
+            <a class="btn btn-outline" href="retroalimentacion.html">Ver retroalimentación</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="logo">EduQuiz</div>
+        <p>Practica Álgebra de forma dinámica con cuestionarios autocorregidos y feedback inmediato.</p>
+      </div>
+      <div>
+        <h4>Continuar</h4>
+        <ul>
+          <li><a href="historial.html">Revisar historial</a></li>
+          <li><a href="retroalimentacion.html">Ver feedback</a></li>
+          <li><a href="registro.html">Invitar a un compañero</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soporte</h4>
+        <ul>
+          <li><a href="#">Guía de uso</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>soporte@eduquiz.com</li>
+          <li>+56 2 1234 5678</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2025 EduQuiz. Todos los derechos reservados.</p>
+      <div class="footer__legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

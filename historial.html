@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Álgebra | Historial de cuestionarios</title>
+  <meta name="description" content="Consulta el historial de cuestionarios resueltos en EduQuiz Álgebra, incluyendo aciertos, tiempo y temas cubiertos.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="historial">
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">EduQuiz</div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <details class="nav-group">
+          <summary>Accesos</summary>
+          <div class="nav-group__menu">
+            <a href="login.html">Ingresar</a>
+            <a href="registro.html">Crear cuenta</a>
+            <a href="admin.html" class="nav-admin-only" hidden>Administrador</a>
+          </div>
+        </details>
+        <a href="admin.html" class="nav-admin-only" hidden>Panel admin</a>
+        <span class="nav-student-slot" data-student-nav-slot></span>
+        <a href="historial.html" class="nav-student-only" aria-current="page" hidden>Historial</a>
+      </nav>
+      <a class="btn btn-small" href="#" data-student-href="generador.html" data-require-student>Nuevo quiz</a>
+      <button type="button" class="btn btn-small nav-auth-only" data-auth-logout hidden>Salir</button>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-block history" aria-labelledby="history-title">
+      <div class="container">
+        <div class="section-head">
+          <h1 id="history-title">Historial de cuestionarios</h1>
+          <p>Consulta cada intento guardado con fecha, tema, aciertos y tiempo. Los datos se almacenan localmente en tu navegador.</p>
+        </div>
+        <div class="panel-card">
+          <div class="tag">Intentos guardados</div>
+          <div id="history-empty" hidden>
+            <p>Todavía no hay cuestionarios guardados. Genera tu primer quiz desde <a href="#" data-student-href="generador.html" data-require-student>la página de cuestionarios</a>.</p>
+          </div>
+          <div id="history-table-wrapper" hidden>
+            <table class="history-table" aria-label="Historial de cuestionarios">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Cuestionario</th>
+                  <th>Temas</th>
+                  <th>Aciertos</th>
+                  <th>Tiempo</th>
+                  <th>Feedback</th>
+                </tr>
+              </thead>
+              <tbody id="history-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="logo">EduQuiz</div>
+        <p>Practica Álgebra de forma dinámica con cuestionarios autocorregidos y feedback inmediato.</p>
+      </div>
+      <div>
+        <h4>Acciones rápidas</h4>
+        <ul>
+          <li><a href="#" data-student-href="generador.html" data-require-student>Nuevo cuestionario</a></li>
+          <li><a href="retroalimentacion.html">Ver retroalimentación</a></li>
+          <li><a href="registro.html">Invitar a un compañero</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="#">Guía del estudiante</a></li>
+          <li><a href="#">Consejos de estudio</a></li>
+          <li><a href="#">Política de datos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>soporte@eduquiz.com</li>
+          <li>+56 2 2222 2222</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2025 EduQuiz. Todos los derechos reservados.</p>
+      <div class="footer__legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

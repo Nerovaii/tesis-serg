@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Álgebra | Iniciar sesión</title>
+  <meta name="description" content="Accede a tu cuenta de EduQuiz Álgebra para continuar resolviendo cuestionarios y consultar tu historial.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="login">
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">EduQuiz</div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <details class="nav-group" open>
+          <summary>Accesos</summary>
+          <div class="nav-group__menu">
+            <a href="login.html" aria-current="page">Ingresar</a>
+            <a href="registro.html">Crear cuenta</a>
+            <a href="admin.html" class="nav-admin-only" hidden>Administrador</a>
+          </div>
+        </details>
+        <span class="nav-student-slot" data-student-nav-slot></span>
+        <a href="historial.html" class="nav-student-only" hidden>Historial</a>
+        <a href="admin.html" class="nav-admin-only" hidden>Panel admin</a>
+        <a href="historial.html" class="nav-auth-only" hidden>Historial</a>
+      </nav>
+      <a class="btn btn-small" href="registro.html">Crear cuenta</a>
+      <button type="button" class="btn btn-small nav-auth-only" data-auth-logout hidden>Salir</button>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="login-hero" aria-labelledby="login-title">
+      <div class="container login-grid">
+        <div class="login-copy">
+          <p class="eyebrow">Suite EduQuiz</p>
+          <h1 id="login-title">Accede a tableros inteligentes y cuestionarios guiados</h1>
+          <p>Centralizamos tu progreso de Álgebra, guardamos cada intento y te damos retroalimentación inmediata para que mejores en cada sesión.</p>
+          <ul class="login-perks">
+            <li>
+              <strong>Intentos ilimitados</strong>
+              <span>Crea y resuelve todos los cuestionarios que quieras.</span>
+            </li>
+            <li>
+              <strong>Historial inteligente</strong>
+              <span>Mira gráficas y tendencias con un clic.</span>
+            </li>
+            <li>
+              <strong>Feedback guiado</strong>
+              <span>Recibe explicaciones paso a paso.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="login-card" role="presentation">
+          <div class="login-card__head">
+            <div>
+              <h2>Elige tu tipo de acceso</h2>
+            </div>
+            
+          </div>
+          <div class="login-tabs" role="tablist">
+            <button type="button" class="login-tab is-active" id="tab-student">Estudiante</button>
+            <button type="button" class="login-tab" id="tab-admin">Administrador</button>
+          </div>
+          <form class="login-form" aria-label="Inicio estudiante" id="student-login-form">
+            <label class="form-field">Correo electrónico
+              <input type="email" name="student-email" placeholder="estudiante@colegio.com" required>
+            </label>
+            <label class="form-field">Contraseña
+              <input type="password" name="student-pass" placeholder="Clave de estudiante" required minlength="8">
+            </label>
+            <button type="submit" class="btn">Ingresar como estudiante</button>
+            <a class="form-link" href="registro.html">¿Aún no tienes cuenta? Crear una nueva</a>
+            <a class="form-link" href="#" data-open-recovery>¿Olvidaste tu contraseña?</a>
+          </form>
+
+          <form class="login-form" aria-label="Inicio administrador" id="admin-login-form" hidden>
+            <label class="form-field">Correo electrónico
+              <input type="email" name="admin-email" placeholder="admin@eduquiz.com" required>
+            </label>
+            <label class="form-field">Contraseña
+              <input type="password" name="admin-pass" placeholder="Clave de administrador" required minlength="8">
+            </label>
+            <button type="submit" class="btn btn-error">Ingresar como administrador</button>
+            <div class="form-link" aria-live="polite">Acceso exclusivo para personal autorizado.</div>
+          </form>
+
+          <form class="login-form" aria-label="Recuperar contraseña" id="recovery-form" hidden>
+            <p class="text-muted">Ingresa tu correo registrado y te enviaremos un código de 6 dígitos. Lo escribirás a continuación, sin salir de esta página.</p>
+            <label class="form-field">Correo electrónico
+              <input type="email" name="recovery-email" placeholder="tu-correo@eduquiz.com" required>
+            </label>
+            <button type="submit" class="btn btn-outline">Enviar código de recuperación</button>
+            <a class="form-link" href="#" data-cancel-recovery>Volver a iniciar sesión</a>
+          </form>
+          <form class="login-form" aria-label="Restablecer contraseña" id="reset-form" hidden>
+            <p class="text-muted" id="recovery-hint">Revisa tu bandeja e ingresa el código de 6 dígitos.</p>
+            <label class="form-field">Correo electrónico
+              <input type="email" name="reset-email" placeholder="tu-correo@eduquiz.com" required>
+            </label>
+            <label class="form-field">Código de recuperación
+              <input type="text" name="reset-token" placeholder="000000" required minlength="6" maxlength="6">
+            </label>
+            <label class="form-field">Nueva contraseña
+              <input type="password" name="reset-pass" placeholder="Mínimo 8 caracteres" required minlength="8">
+            </label>
+            <label class="form-field">Confirma tu nueva contraseña
+              <input type="password" name="reset-pass-confirm" placeholder="Repite tu contraseña" required minlength="8">
+            </label>
+            <button type="submit" class="btn btn-error">Restablecer contraseña</button>
+            <a class="form-link" href="#" data-cancel-recovery>Volver a iniciar sesión</a>
+          </form>
+          <div class="login-card__footer">
+            <p>Soporte 24/7 &bull; Sin costo adicional</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="logo">EduQuiz</div>
+        <p>Practica Álgebra de forma dinámica con cuestionarios autocorregidos y feedback inmediato.</p>
+      </div>
+      <div>
+        <h4>Enlaces útiles</h4>
+        <ul>
+          <li><a href="registro.html">Crear cuenta</a></li>
+          <li><a href="#" data-student-href="generador.html" data-require-student>Generar cuestionarios</a></li>
+          <li><a href="historial.html">Ver historial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Centro de ayuda</a></li>
+          <li><a href="#">Centro de ayuda</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contáctanos</h4>
+        <ul>
+          <li>soporte@eduquiz.com</li>
+          <li>+56 2 2222 2222</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2025 EduQuiz. Todos los derechos reservados.</p>
+      <div class="footer__legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

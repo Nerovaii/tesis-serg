@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Álgebra | Panel administrador</title>
+  <meta name="description" content="Supervisa métricas avanzadas de alumnos en EduQuiz Álgebra: resultados, tendencias y cuestionarios realizados.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">EduQuiz</div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <details class="nav-group" open>
+          <summary>Accesos</summary>
+          <div class="nav-group__menu">
+            <a href="login.html">Ingresar</a>
+            <a href="registro.html">Crear cuenta</a>
+            <a href="admin.html" class="nav-admin-only" aria-current="page">Administrador</a>
+          </div>
+        </details>
+        <span class="nav-student-slot" data-student-nav-slot></span>
+        <a href="historial.html" class="nav-student-only" hidden>Historial</a>
+        <a href="admin.html" class="nav-admin-only" aria-current="page">Panel admin</a>
+      </nav>
+      <button type="button" class="btn btn-small nav-auth-only" data-auth-logout hidden>Salir</button>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-block" aria-labelledby="admin-title">
+      <div class="container">
+        <div class="section-head">
+          <h1 id="admin-title">Panel administrador</h1>
+          <p>Consulta una vista consolidada de desempeño por alumno, cuestionario y tema para tomar decisiones informadas.</p>
+        </div>
+        <div class="metrics-grid">
+          <article class="panel-card" id="progreso">
+            <div class="tag">Promedio general</div>
+            <h2>Exactitud global</h2>
+            <p>Porcentaje de respuestas correctas acumuladas en los Últimos 30 días.</p>
+            <div class="metric-highlight">
+              <span class="metric-value">84%</span>
+              <span class="metric-label">Aciertos promedio</span>
+            </div>
+            <ul class="feature-list">
+              <li>Máximo registrado: 96% en Álgebra básica.</li>
+              <li>Mínimo registrado: 68% en sistemas 2x2.</li>
+              <li>Evolución semanal con tendencia ascendente del 6%.</li>
+            </ul>
+          </article>
+          <article class="panel-card">
+            <div class="tag">Actividad</div>
+            <h2>Seguimiento de cuestionarios</h2>
+            <p>Detalle de intentos completados, en progreso y pendientes por cohorte.</p>
+            <ul class="summary-list">
+              <li><strong>48</strong> cuestionarios finalizados esta semana.</li>
+              <li><strong>12</strong> cuestionarios en progreso con alertas de seguimiento.</li>
+              <li><strong>6</strong> cuestionarios pendientes de revisión docente.</li>
+            </ul>
+            <a class="form-link" href="historial.html">Abrir historial completo</a>
+          </article>
+          <article class="panel-card">
+            <div class="tag">Temáticas</div>
+            <h2>Mapa de progreso</h2>
+            <p>Visualiza qué contenidos domina cada alumno y dónde necesita apoyo adicional.</p>
+            <ul class="feature-list">
+              <li>Ecuaciones lineales: 72% de logro promedio.</li>
+              <li>Fracciones y proporciones: 88% con mejora sostenida.</li>
+              <li>Sistemas 2x2: 64% con foco sugerido en ejercicios guiados.</li>
+            </ul>
+            <a class="btn btn-small" href="#" data-student-href="generador.html" data-require-student>Asignar nuevo cuestionario</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block access" aria-labelledby="detalle-alumnos">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="detalle-alumnos">Detalle por alumno</h2>
+          <p>Explora el porcentaje de aciertos, los cuestionarios realizados y las áreas de estudio de cada integrante.</p>
+        </div>
+        <div class="panel-card">
+          <table class="history-table" aria-label="Resumen de métricas por alumno">
+            <thead>
+              <tr>
+                <th>Alumno</th>
+                <th>% de aciertos</th>
+                <th>Cuestionarios completados</th>
+                <th>Temas destacados</th>
+                <th>Última actividad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ana Rojas</td>
+                <td>92%</td>
+                <td>14</td>
+                <td>Ecuaciones lineales, sistemas simples</td>
+                <td>Hace 1 día</td>
+              </tr>
+              <tr>
+                <td>Diego Muñoz</td>
+                <td>78%</td>
+                <td>9</td>
+                <td>Fracciones, porcentajes</td>
+                <td>Hace 3 días</td>
+              </tr>
+              <tr>
+                <td>Lucía Pérez</td>
+                <td>87%</td>
+                <td>11</td>
+                <td>Proporciones, sistemas 2x2</td>
+                <td>Hace 6 horas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="admin-editor" aria-labelledby="editor-cuestionarios">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="editor-cuestionarios">Edición de cuestionarios</h2>
+          <p>Selecciona primero un tema y dificultad antes de agregar o quitar preguntas del banco personalizado.</p>
+        </div>
+
+        <div class="panel-card">
+          <form class="form-grid" id="admin-question-scope" aria-label="Elegir tema de edición">
+            <label>Escoge el tema a modificar
+              <select name="topic" required>
+                <option value="" selected disabled>Selecciona un tema</option>
+                <option value="algebra">Álgebra</option>
+                <option value="geometria">Geometría</option>
+                <option value="probabilidad">Probabilidad y estadística</option>
+                <option value="ecuaciones">Ecuaciones lineales</option>
+                <option value="fracciones">Fracciones y proporciones</option>
+                <option value="sistemas">Sistemas 2x2</option>
+              </select>
+            </label>
+            <label>Dificultad
+              <select name="difficulty" required>
+                <option value="" selected disabled>Selecciona nivel</option>
+                <option value="basico">Básico</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+              </select>
+            </label>
+            <button type="submit" class="btn">Continuar con este tema</button>
+          </form>
+        </div>
+
+        <div class="panel-card" id="admin-question-editor-panel" hidden>
+          <div class="editor-head">
+            <div>
+              <span class="tag">Banco editable</span>
+              <h3 id="question-editor-context">Tema seleccionado</h3>
+              <p class="text-muted">Las preguntas personalizadas se guardan en este navegador para complementar el generador.</p>
+            </div>
+          </div>
+          <form class="form-grid" id="admin-question-form" aria-label="Agregar pregunta personalizada">
+            <label>Enunciado de la pregunta
+              <textarea name="prompt" rows="3" required placeholder="Ejemplo: ¿Cuál es el valor de x en 2x + 3 = 11?"></textarea>
+            </label>
+            <label>Opción 1
+              <input type="text" name="option-1" required>
+            </label>
+            <label>Opción 2
+              <input type="text" name="option-2" required>
+            </label>
+            <label>Opción 3
+              <input type="text" name="option-3" required>
+            </label>
+            <label>Opción 4
+              <input type="text" name="option-4" required>
+            </label>
+            <label>Respuesta correcta
+              <select name="answer-index" required>
+                <option value="0">Opción 1</option>
+                <option value="1">Opción 2</option>
+                <option value="2">Opción 3</option>
+                <option value="3">Opción 4</option>
+              </select>
+            </label>
+            <label>Explicación breve (opcional)
+              <textarea name="explanation" rows="2" placeholder="Agrega una pista o justificación para la respuesta correcta."></textarea>
+            </label>
+            <button type="submit" class="btn">Agregar pregunta</button>
+          </form>
+
+          <div id="admin-question-list" class="custom-question-list" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="acciones-admin">
+      <div class="container cta__box">
+        <div>
+          <h2 id="acciones-admin">Acciones sugeridas</h2>
+          <p>Comparte los informes semanales, configura recordatorios automáticos y actualiza los cuestionarios asignados según las tendencias detectadas.</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn" href="historial.html">Exportar reporte</a>
+          <a class="btn btn-outline" href="#" data-student-href="generador.html" data-require-student>Crear práctica dirigida</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="logo">EduQuiz</div>
+        <p>Practica Álgebra de forma dinámica con cuestionarios autocorregidos y feedback inmediato.</p>
+      </div>
+      <div>
+        <h4>Recursos rápidos</h4>
+        <ul>
+          <li><a href="#" data-student-href="generador.html" data-require-student>Generar cuestionarios</a></li>
+          <li><a href="historial.html">Revisar historial</a></li>
+          <li><a href="#">Enviar feedback</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soporte</h4>
+        <ul>
+          <li><a href="#">Guía de implementación</a></li>
+          <li><a href="#">Política de datos</a></li>
+          <li><a href="#">Centro de ayuda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>soporte@eduquiz.com</li>
+          <li>+56 2 2222 2222</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2025 EduQuiz. Todos los derechos reservados.</p>
+      <div class="footer__legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

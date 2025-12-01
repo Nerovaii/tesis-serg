@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Álgebra | Práctica interactiva de Álgebra básica</title>
+  <meta name="description" content="EduQuiz Álgebra ayuda a estudiantes a practicar Álgebra simple con cuestionarios interactivos, historial de intentos y retroalimentación inmediata.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">EduQuiz</div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <details class="nav-group">
+          <summary>Accesos</summary>
+          <div class="nav-group__menu">
+            <a href="login.html">Ingresar</a>
+            <a href="registro.html">Crear cuenta</a>
+            <a href="admin.html" class="nav-admin-only" hidden>Administrador</a>
+          </div>
+        </details>
+        <span class="nav-student-slot" data-student-nav-slot></span>
+        <a href="historial.html" class="nav-student-only" hidden>Historial</a>
+        <a href="admin.html" class="nav-admin-only" hidden>Panel admin</a>
+      </nav>
+      <button type="button" class="btn btn-small nav-auth-only" data-auth-logout hidden>Salir</button>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__overlay"></div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <h1 id="hero-title">Practica Álgebra básica con retroalimentación inmediata</h1>
+          <div class="hero__actions">
+            <a class="btn" href="#" data-student-href="generador.html" data-require-student>Comenzar un cuestionario</a>
+            <a class="btn btn-outline" href="historial.html">Revisar mi historial</a>
+          </div>
+          <ul class="hero__highlights"></ul>
+        </div>
+        <div class="hero__mockup role-admin-only" role="presentation" hidden>
+          <div class="mockup-card">
+            <div class="mockup-card__header">
+              <span class="badge badge-live">Álgebra 1</span>
+              <span class="mockup-title">Progreso general</span>
+            </div>
+            <div class="mockup-card__body">
+              <div class="progress">
+                <span>Ecuaciones resueltas</span>
+                <div class="progress__bar"><div style="width:78%"></div></div>
+                <p>78% de acierto promedio</p>
+              </div>
+              <div class="mockup-metrics">
+                <div>
+                  <span class="metric-label">Intentos</span>
+                  <strong>12</strong>
+                </div>
+                <div>
+                  <span class="metric-label">Aciertos</span>
+                  <strong>87%</strong>
+                </div>
+                <div>
+                  <span class="metric-label">Feedback</span>
+                  <strong>100%</strong>
+                </div>
+              </div>
+              <div class="mockup-footer">
+                <span class="badge">Historial activo</span>
+                <span class="badge">Retro inmediata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-proof" aria-label="Datos rápidos">
+      <div class="container social-proof__grid">
+        <div>
+          <span class="kpi">5+</span>
+          <p>Plantillas base de Álgebra para comenzar a practicar hoy</p>
+        </div>
+        <div>
+          <span class="kpi">3 niveles</span>
+          <p>Básico, intermedio y diagnóstico en un solo lugar</p>
+        </div>
+        <div>
+          <span class="kpi">100%</span>
+          <p>Retroalimentación inmediata en cada intento</p>
+        </div>
+        <div>
+          <span class="kpi">24/7</span>
+          <p>Disponible desde web o móvil sin instalaciones</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="flujo-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="flujo-title">Flujo completo de aprendizaje</h2>
+          <p>EduQuiz Álgebra divide el estudio en pasos simples: ingresa, crea tu cuenta, genera un cuestionario, guarda el historial y analiza el feedback para seguir avanzando.</p>
+        </div>
+        <div class="split">
+          <div class="panel-card">
+            <div class="tag">Paso 1</div>
+            <h3>Accede fácilmente</h3>
+            <p>Entra con tu correo institucional o crea una cuenta nueva para comenzar a practicar.</p>
+            <a class="form-link" href="login.html">Ir a iniciar sesión</a>
+            <a class="form-link" href="registro.html">Crear cuenta</a>
+          </div>
+          <div class="panel-card">
+            <div class="tag">Paso 2</div>
+            <h3>Resuelve cuestionarios</h3>
+            <p>El generador incluye ejercicios de Álgebra con pistas, solución y control del tiempo.</p>
+            <a class="form-link" href="#" data-student-href="generador.html" data-require-student>Abrir generador</a>
+          </div>
+          <div class="panel-card">
+            <div class="tag">Paso 3</div>
+            <h3>Revisa tu progreso</h3>
+            <p>Consulta el historial de intentos, descarga reportes y analiza los pasos correctos y errores.</p>
+            <a class="form-link" href="historial.html">Ver historial</a>
+            <a class="form-link" href="retroalimentacion.html">Ver feedback</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container cta__box">
+        <div>
+          <h2 id="cta-title">Listo para practicar Álgebra hoy</h2>
+          <p>Crea tu cuenta gratis, resuelve cuestionarios autocorregidos y guarda tu progreso para el próximo repaso.</p>
+        </div>
+        <form class="cta__form">
+          <label for="cta-email" class="sr-only">Correo electrónico</label>
+          <input id="cta-email" type="email" name="cta-email" placeholder="correo@institucion.com" required>
+          <button type="submit" class="btn">Recibir acceso</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="logo">EduQuiz</div>
+        <p>Practica Álgebra de forma dinámica con cuestionarios autocorregidos y feedback inmediato.</p>
+      </div>
+      <div>
+        <h4>Accesos rápidos</h4>
+        <ul>
+          <li><a href="login.html">Iniciar sesión</a></li>
+          <li><a href="registro.html">Crear cuenta</a></li>
+          <li><a href="#" data-student-href="generador.html" data-require-student>Generar cuestionarios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>soporte@eduquiz.com</li>
+          <li>+56 2 1234 5678</li>
+          <li>Latam - Online</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2025 EduQuiz. Todos los derechos reservados.</p>
+      <div class="footer__legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="retroalimentacion.html">Soporte</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

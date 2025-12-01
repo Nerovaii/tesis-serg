@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Álgebra | Retroalimentación</title>
+  <meta name="description" content="Revisa la retroalimentación de tu Último cuestionario de Álgebra: respuestas correctas, errores y explicaciones paso a paso.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="retroalimentacion">
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">EduQuiz</div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <details class="nav-group">
+          <summary>Accesos</summary>
+          <div class="nav-group__menu">
+            <a href="login.html">Ingresar</a>
+            <a href="registro.html">Crear cuenta</a>
+            <a href="admin.html" class="nav-admin-only" hidden>Administrador</a>
+          </div>
+        </details>
+        <a href="admin.html" class="nav-admin-only" hidden>Panel admin</a>
+        <span class="nav-student-slot" data-student-nav-slot></span>
+        <a href="historial.html" class="nav-student-only" hidden>Historial</a>
+      </nav>
+      <a class="btn btn-small" href="#" data-student-href="generador.html" data-require-student>Nuevo quiz</a>
+      <button type="button" class="btn btn-small nav-auth-only" data-auth-logout hidden>Salir</button>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-block feedback" aria-labelledby="feedback-title">
+      <div class="container">
+        <div class="section-head">
+          <h1 id="feedback-title">Retroalimentación de tu Último cuestionario</h1>
+          <p>Analiza pregunta por pregunta con su explicación y recomendaciones. Los datos se guardan localmente en tu navegador.</p>
+        </div>
+
+        <div class="panel-card" id="feedback-empty" hidden>
+          <p>Todavía no hay retroalimentación disponible. Genera un cuestionario y complétalo para ver los detalles aqué.</p>
+          <a class="btn" href="#" data-student-href="generador.html" data-require-student>Generar cuestionario</a>
+        </div>
+
+        <div class="feedback-grid" id="feedback-content" hidden>
+          <article class="panel-card">
+            <div class="tag">Resumen</div>
+            <h2 id="feedback-summary-title">Último quiz</h2>
+            <div class="summary">
+              <div>
+                <span class="summary-label">Tema</span>
+                <strong id="feedback-topic"></strong>
+              </div>
+              <div>
+                <span class="summary-label">Dificultad</span>
+                <strong id="feedback-difficulty"></strong>
+              </div>
+              <div>
+                <span class="summary-label">Aciertos</span>
+                <strong id="feedback-score">0/0</strong>
+              </div>
+              <div>
+                <span class="summary-label">Tiempo total</span>
+                <strong id="feedback-time">00:00</strong>
+              </div>
+            </div>
+            <button type="button" class="btn" id="feedback-export">Descargar reporte JSON</button>
+          </article>
+
+          <article class="panel-card">
+            <div class="tag">Detalle por pregunta</div>
+            <div id="feedback-list" class="feedback-list"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="logo">EduQuiz</div>
+        <p>Practica Álgebra de forma dinámica con cuestionarios autocorregidos y feedback inmediato.</p>
+      </div>
+      <div>
+        <h4>Acciones</h4>
+        <ul>
+          <li><a href="#" data-student-href="generador.html" data-require-student>Nuevo cuestionario</a></li>
+          <li><a href="historial.html">Ver historial</a></li>
+          <li><a href="registro.html">Invitar a un compañero</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soporte</h4>
+        <ul>
+          <li><a href="#">Centro de ayuda</a></li>
+          <li><a href="#">Política de datos</a></li>
+          <li><a href="#">Contáctanos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sigue aprendiendo</h4>
+        <form class="footer__form">
+          <label for="newsletter" class="sr-only">Correo boletín</label>
+          <input id="newsletter" type="email" placeholder="aprendo@algebra.com" required>
+          <button type="submit" class="btn btn-small">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2025 EduQuiz. Todos los derechos reservados.</p>
+      <div class="footer__legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

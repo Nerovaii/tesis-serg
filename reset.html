@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Álgebra | Restablecer contraseña</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="reset">
+  <header class="site-header">
+    <div class="container nav-bar">
+      <div class="logo">EduQuiz</div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="login.html">Volver a iniciar sesión</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="login-hero" aria-labelledby="reset-title">
+      <div class="container login-grid">
+        <div class="login-copy">
+          <p class="eyebrow">Recuperación</p>
+          <h1 id="reset-title">Restablece tu contraseña</h1>
+          <p>Ingresa el correo y el código de recuperación que recibiste para crear tu nueva contraseña.</p>
+        </div>
+        <div class="login-card" role="presentation">
+          <div class="login-card__head">
+            <div>
+              <h2>Restablecer contraseña</h2>
+            </div>
+          </div>
+
+          <form class="login-form" aria-label="Restablecer contraseña" id="reset-form">
+            <p class="text-muted" id="recovery-hint">Revisa tu bandeja o spam para encontrar el código temporal.</p>
+            <label class="form-field">Correo electrónico
+              <input type="email" name="reset-email" placeholder="tu-correo@eduquiz.com" required>
+            </label>
+            <label class="form-field">Código de recuperación
+              <input type="text" name="reset-token" placeholder="000000" required minlength="6" maxlength="6">
+            </label>
+            <label class="form-field">Nueva contraseña
+              <input type="password" name="reset-pass" placeholder="Mínimo 8 caracteres" required minlength="8">
+            </label>
+            <label class="form-field">Confirma tu nueva contraseña
+              <input type="password" name="reset-pass-confirm" placeholder="Repite tu contraseña" required minlength="8">
+            </label>
+            <button type="submit" class="btn btn-error">Restablecer contraseña</button>
+            <a class="form-link" href="login.html">Volver a iniciar sesión</a>
+          </form>
+          <div class="login-card__footer">
+            <p>Soporte 24/7 &bull; Sin costo adicional</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

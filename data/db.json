@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "email": "estudiante@colegio.com",
+      "passwordHash": "$2a$10$lzpD0Nae1YxsQLY.1CmHx.A7HLg/sBGo4St0xQoE5Og.712rXExme"
+    },
+    {
+      "email": "segurasergio03@gmail.com",
+      "passwordHash": "$2a$10$uewUKsbMrcqm9l7UCWf72emIDBAOxvuy6.Y9jvkzmabrNhfqPPKm."
+    }
+  ],
+  "tokens": [
+    {
+      "email": "segurasergio03@gmail.com",
+      "tokenHash": "$2a$08$Jbhcr0emBYjIplK/ApdRMeLlE4jGkDMvhrDmXUC7tkwIcbcp84HTC",
+      "expiresAt": 1764186861449,
+      "usedAt": 1764186293129
+    }
+  ]
+}
