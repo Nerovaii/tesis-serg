@@ -12,21 +12,21 @@
     <div class="container nav-bar">
       <div class="logo">EduQuiz</div>
       <nav class="main-nav">
-        <a href="index.html">Inicio</a>
+        <a href="/">Inicio</a>
         <details class="nav-group" open>
           <summary>Accesos</summary>
           <div class="nav-group__menu">
-            <a href="login.html" aria-current="page">Ingresar</a>
-            <a href="registro.html">Crear cuenta</a>
-            <a href="admin.html" class="nav-admin-only" hidden>Administrador</a>
+            <a href="/login" aria-current="page">Ingresar</a>
+            <a href="/registro">Crear cuenta</a>
+            <a href="/admin" class="nav-admin-only" hidden>Administrador</a>
           </div>
         </details>
         <span class="nav-student-slot" data-student-nav-slot></span>
-        <a href="historial.html" class="nav-student-only" hidden>Historial</a>
-        <a href="admin.html" class="nav-admin-only" hidden>Panel admin</a>
-        <a href="historial.html" class="nav-auth-only" hidden>Historial</a>
+        <a href="/historial" class="nav-student-only" hidden>Historial</a>
+        <a href="/admin" class="nav-admin-only" hidden>Panel admin</a>
+        <a href="/historial" class="nav-auth-only" hidden>Historial</a>
       </nav>
-      <a class="btn btn-small" href="registro.html">Crear cuenta</a>
+      <a class="btn btn-small" href="/registro">Crear cuenta</a>
       <button type="button" class="btn btn-small nav-auth-only" data-auth-logout hidden>Salir</button>
       <button class="nav-toggle" aria-label="Abrir menú">
         <span></span>
@@ -77,7 +77,7 @@
               <input type="password" name="student-pass" placeholder="Clave de estudiante" required minlength="8">
             </label>
             <button type="submit" class="btn">Ingresar como estudiante</button>
-            <a class="form-link" href="registro.html">¿Aún no tienes cuenta? Crear una nueva</a>
+            <a class="form-link" href="/registro">¿Aún no tienes cuenta? Crear una nueva</a>
             <a class="form-link" href="#" data-open-recovery>¿Olvidaste tu contraseña?</a>
           </form>
 
@@ -134,17 +134,17 @@
       <div>
         <h4>Enlaces útiles</h4>
         <ul>
-          <li><a href="registro.html">Crear cuenta</a></li>
-          <li><a href="#" data-student-href="generador.html" data-require-student>Generar cuestionarios</a></li>
-          <li><a href="historial.html">Ver historial</a></li>
+          <li><a href="/registro">Crear cuenta</a></li>
+          <li><a href="#" data-student-href="/generador" data-require-student>Generar cuestionarios</a></li>
+          <li><a href="/historial">Ver historial</a></li>
         </ul>
       </div>
       <div>
         <h4>Ayuda</h4>
         <ul>
-          <li><a href="#">Centro de ayuda</a></li>
-          <li><a href="#">Centro de ayuda</a></li>
-          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="/ayuda">Centro de ayuda</a></li>
+          <li><a href="/ayuda">Centro de ayuda</a></li>
+          <li><a href="/ayuda">Política de privacidad</a></li>
         </ul>
       </div>
       <div>
@@ -158,8 +158,8 @@
     <div class="container footer__bottom">
       <p>&copy; 2025 EduQuiz. Todos los derechos reservados.</p>
       <div class="footer__legal">
-        <a href="#">Privacidad</a>
-        <a href="#">Términos</a>
+        <a href="/ayuda">Privacidad</a>
+        <a href="/ayuda">Términos</a>
       </div>
     </div>
   </footer>

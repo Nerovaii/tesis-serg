@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, render_template, abort
-from jinja2 import TemplateNotFound
 from flask_cors import CORS
 import bcrypt
 import os
@@ -24,8 +23,6 @@ from email_service import send_recovery_email
 load_dotenv()
 
 # Inicializar Flask
-# templates -> carpeta donde estarán tus .html
-# static    -> carpeta donde estarán tus css/js/imágenes
 app = Flask(
     __name__,
     template_folder='templates',
@@ -86,21 +83,24 @@ def validate_token(email: str, token: str) -> dict:
 # --- Rutas HTML (frontend) ---
 
 @app.route('/', methods=['GET'])
-def home():
-    """
-    Ruta principal: sirve index.html desde templates/.
-    """
+def index():
+    """Ruta principal: index.html."""
     return render_template('index.html')
 
 
-@app.route('/<page_name>')
-def render_static(page_name):
+@app.route('/<page_name>.html', methods=['GET'])
+def render_static_page(page_name):
     """
-    Ruta dinámica para servir páginas estáticas desde templates/.
+    Ruta genérica para templates:
+    /login.html             -> templates/login.html
+    /registro.html          -> templates/registro.html
+    /admin.html             -> templates/admin.html
+    etc.
     """
     try:
         return render_template(f'{page_name}.html')
-    except TemplateNotFound:
+    except Exception:
+        # Si no existe la plantilla, 404
         abort(404)
 
 
@@ -302,6 +302,5 @@ if __name__ == '__main__':
     print("🛣️ Rutas registradas:")
     print(app.url_map)
 
-    # Modo debug solo en desarrollo
     debug_mode = os.getenv('FLASK_ENV') == 'development'
     app.run(host='0.0.0.0', port=PORT, debug=debug_mode)
